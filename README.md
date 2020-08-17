@@ -27,4 +27,4 @@ For now the script supports following router CLI type:
 - add BGP session down duration min threshold to avoid alerting flapping ASs
 - add brocade support
 - add huawei support
-# notify_bgp_peers
+
