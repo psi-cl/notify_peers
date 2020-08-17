@@ -1,6 +1,6 @@
-# notify_bgp_peers
+# notify_peers
 
-notify_bgp_peers is a BGP peering maintenance Ansible module. It sends out notification emails to peers NOCs when BGP sessions towards them are down and a summary of it all to your NOC email.
+notify_peers is a BGP peering maintenance Ansible module. It sends out notification emails to peers NOCs when BGP sessions towards them are down and a summary of it all to your NOC email.
 
 ## How does it work?
 
