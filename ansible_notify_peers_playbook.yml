@@ -1,0 +1,17 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
+
+  tasks:
+
+   - name: Include only files matching config.yml
+     include_vars:
+       dir: vars
+       files_matching: config.yml
+
+   - name: Include task list in play only if the condition is true
+     include_tasks: "ansible_notify_peers_{{ ansible_model }}.yml"
+     when: ansible_model is defined

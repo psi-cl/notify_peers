@@ -1,0 +1,21 @@
+---
+
+#    - debug:
+#        msg: "{{ hostvars[inventory_hostname] }}"
+
+    - name: get bgp peering output
+      slxos_command:
+        commands: show ip bgp su
+      register: show_bgp
+
+#    - local_action: copy content={{ show_bgp.stdout[0] }} dest=bgpdump.txt
+    - name: process the show bgp in the module
+      notify_peers_slxos:
+        input: "{{ show_bgp.stdout[0] }}"
+        notify_peers: "True"
+        notify_summary: "True"
+        vars: "{{ myvars }}"
+        ix: "{{ ix }}"
+        router_ip: "{{ inventory_hostname  }}"
+        cli_type: "{{ ansible_network_os }}"
+        network: "{{ network }}"
